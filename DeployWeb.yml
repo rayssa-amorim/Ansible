@@ -1,0 +1,29 @@
+---
+
+- name: Deploy de aplicação ASP.NET para IIS
+  hosts: windows
+  gather_facts: true
+  tasks:
+    - name: Parar o ansiblewebpool
+      win_iis_webapppool:
+        name: ansiblewebpool
+        state: stopped
+    - name: Cópia dos arquivos para a pasta do Site
+      win_copy:
+        src: C:\aplicativos\AspnetApp\wwwroot  
+        dest: C:\inetpub\wwwroot\Aspnetapp
+        remote_src: yes
+    - name: Iniciar o Pool da aplicação
+      win_iis_webapppool:
+        name: ansiblewebpool
+        state: started  
+    - name: Configuração do Site no IIS 
+      win_iis_website: 
+        name: aspnetproject
+        state: started
+        port: 80
+        ip: '*'
+        hostname: aspnet.local
+        application_pool: ansiblewebpool 
+        physical_path: C:\inetpub\wwwroot\Aspnetapp  
+      
