@@ -1,2 +1,2 @@
 # Ansible
-Repositório de testes com Ansible AWX
+Repositório de Playbooks para testes com Ansible AWX
