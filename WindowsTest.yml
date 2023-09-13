@@ -4,7 +4,8 @@
   tasks:
    - name: Cópia de arquivo
      win_copy:
-      src: C:\TesteAnsible.txt
-      dest: C:\aplicativos\ansible_test
+      src: C:\Aplicativos\Testexyz.txt
+      dest: C:\Aplicativos\Ansible
       remote_src: yes
+   
    
