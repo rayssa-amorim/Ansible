@@ -4,10 +4,10 @@
   hosts: windows
   gather_facts: true
   tasks:
-    - name: Criar o pool da aplicação 
-      win_iis_webapppool:
-        name: ansiblewebpool
-        state: started
+   - name: Criação do novo application pool - ansiblewebpool in 'Started' state
+     win_iis_webapppool:
+       name: ansiblepool
+       state: started
     - name: Parar o ansiblewebpool
       win_iis_webapppool:
         name: ansiblewebpool
