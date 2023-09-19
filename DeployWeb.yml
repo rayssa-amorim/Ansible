@@ -4,14 +4,18 @@
   hosts: windows
   gather_facts: true
   tasks:
+    - name: Criar o pool da aplicação 
+      win_iis_webapppool:
+        name: ansiblewebpool
+        state: started
     - name: Parar o ansiblewebpool
       win_iis_webapppool:
         name: ansiblewebpool
         state: stopped
     - name: Cópia dos arquivos para a pasta do Site
       win_copy:
-        src: C:\aplicativos\AspnetApp\wwwroot  
-        dest: C:\inetpub\wwwroot\Aspnetapp
+        src: C:\Aplicativos\AspnetApp\wwwroot  
+        dest: C:\inetpub\wwwroot\AWXAspnetApp
         remote_src: yes
     - name: Iniciar o Pool da aplicação
       win_iis_webapppool:
@@ -19,11 +23,10 @@
         state: started  
     - name: Configuração do Site no IIS 
       win_iis_website: 
-        name: aspnetproject
+        name: AWXProject
         state: started
         port: 80
         ip: '*'
-        hostname: aspnet.local
+        hostname: awxansible.local
         application_pool: ansiblewebpool 
-        physical_path: C:\inetpub\wwwroot\Aspnetapp  
-      
+        physical_path: C:\inetpub\wwwroot\AWXAspnetApp  
