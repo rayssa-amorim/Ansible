@@ -1,7 +1,7 @@
 def ReleaseDir = "c:\\aplicativos\\AspnetApp"
 
 pipeline {
-   agent { label 'master'}     
+   agent any   
    options {
 	    timeout(time: 1, unit: 'DAYS')
         buildDiscarder(logRotator(numToKeepStr: '4', artifactNumToKeepStr: '4')) 
