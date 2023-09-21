@@ -10,9 +10,3 @@
      name: MSSQLSERVER
     register: sqlstatus
 
-  - name: Start SQL Service
-    win_service:
-     name: MSSQLSERVER
-     start_mode: auto
-     state: started
-    when: sqlstatus.exists
