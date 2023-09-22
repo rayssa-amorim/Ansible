@@ -1,7 +1,7 @@
 ---
 
 - name: Deploy de aplicação ASP.NET para IIS
-  hosts: windows
+  hosts: all
   gather_facts: true
   tasks:
     
