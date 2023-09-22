@@ -6,20 +6,20 @@
   tasks:
     
     - name: Parar o pool da aplicação - Ansiblewebpool
-      community.windows.win_iis_webapppool:
+      ansible.windows.win_iis_webapppool:
         name: Ansiblewebpool
         state: stopped
     - name: Cópia dos arquivos para a pasta do Site
-      community.windows.win_copy:
+      ansible.windows.win_copy:
         src: C:\aplicativos\AspnetApp\wwwroot  
         dest: C:\inetpub\wwwroot\AWXAspnetApp
         remote_src: yes
     - name: Iniciar o Pool da aplicação
-      community.windows.win_iis_webapppool:
+      ansible.windows.win_iis_webapppool:
         name: Ansiblewebpool
         state: started  
     - name: Configuração do Site no IIS 
-      community.windows.win_iis_website: 
+      ansible.windows.win_iis_website: 
         name: AWXProject
         state: started
         port: 80
