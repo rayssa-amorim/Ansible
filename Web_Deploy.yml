@@ -1,5 +1,10 @@
-tasks:
+---
 
+- name: Deploy de aplicação ASP.NET para IIS
+  hosts: windows
+  gather_facts: true
+  tasks:
+    
     - name: Parar o pool da aplicação - Ansiblewebpool
       win_iis_webapppool:
         name: Ansiblewebpool
@@ -21,13 +26,5 @@ tasks:
         ip: '*'
         hostname: awxansible.local
         application_pool: Ansiblewebpool 
-        physical_path: C:\inetpub\wwwroot\AWXAspnetApp
-    - name: Configuração do Site no IIS 
-      win_iis_website: 
-        name: AWXProject
-        state: started
-        port: 80
-        ip: '*'
-        hostname: awxansible.local
-        application_pool: Ansiblewebpool 
-        physical_path: C:\inetpub\wwwroot\AWXAspnetApp 
+        physical_path: C:\inetpub\wwwroot\AWXAspnetApp  
+      
