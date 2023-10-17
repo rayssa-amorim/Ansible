@@ -1,0 +1,14 @@
+[libdefaults]
+  dns_lookup_realm = false
+  dns_lookup_kdc = false
+  rdns = false
+
+[realms]
+  ANSIBLETEST.LOCAL = {
+  kdc = SRV-DC1.ansibletest.local
+  }
+
+[domain_realm]
+  .ansibletest.local = ANSIBLETEST.LOCAL
+  ansibletest.local = ANSIBLETEST.LOCAL
+

@@ -1,0 +1,18 @@
+---
+
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx
+spec:
+  service_type: NodePort
+  ingress_type: Ingress
+  hostname: ansibleawx.awx.local
+  #hostAliases:
+  #- ip: "10.0.4.84" 
+  #  hostnames:
+  #  - "srv-dc1.ansibletest.local"
+  #- ip: "10.0.4.4"
+  #  hostnames:
+  #  - "srv-dc1.ansibletest.local"
+  
